@@ -59,26 +59,4 @@ public class LoginSteps {
             return false;
         }
     }
-
-    public boolean hasLoginError() {
-        try {
-            WebElement errorElement = driver.findElement(
-                    By.cssSelector(".alert-danger, .login-error, .error")
-            );
-            return errorElement.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public String getErrorMessage() {
-        try {
-            WebElement errorElement = driver.findElement(
-                    By.cssSelector(".alert-danger, .login-error, .error")
-            );
-            return errorElement.getText();
-        } catch (Exception e) {
-            return "No se encontró mensaje de error";
-        }
-    }
 }

@@ -2,11 +2,9 @@ package Principal.StepsDefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
-
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
-import io.cucumber.java.es.Y;
 import org.openqa.selenium.WebDriver;
 
 import static Principal.Core.DriverManager.getDriver;

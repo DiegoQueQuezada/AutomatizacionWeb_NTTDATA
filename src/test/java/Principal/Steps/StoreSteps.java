@@ -14,7 +14,6 @@ public class StoreSteps {
     private WebDriver driver;
     private WebDriverWait wait;
     private static double productPrice;
-    private static String productName;
 
     public StoreSteps(WebDriver driver) {
         this.driver = driver;

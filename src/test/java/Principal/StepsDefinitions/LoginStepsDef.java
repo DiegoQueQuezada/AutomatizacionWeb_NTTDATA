@@ -13,15 +13,15 @@ import static Principal.Core.DriverManager.getDriver;
 import static Principal.Core.DriverManager.screenShot;
 
 public class LoginStepsDef {
+
     private WebDriver driver;
     private Scenario scenario;
-    private LoginSteps loginSteps;
 
     @Before
     public void setup(Scenario scenario) {
         this.scenario = scenario;
         TestContext.setCurrentScenarioName(scenario.getName());
-        TestContext.reset(); // Resetear al inicio de cada escenario
+        TestContext.reset();
     }
 
     @Dado("estoy en la página de la tienda")
@@ -35,19 +35,14 @@ public class LoginStepsDef {
     public void me_logueo_con_mi_usuario_y_clave(String usuario, String clave) {
         LoginSteps loginSteps = new LoginSteps(driver);
 
-        // PRIMERO: Ir a la página de login (¡esto es lo que falta!)
         loginSteps.goToLoginPage();
         screenShot(scenario, "02_Pagina_Login");
 
-        // SEGUNDO: Ingresar credenciales
         loginSteps.typeUser(usuario);
         loginSteps.typePassword(clave);
         screenShot(scenario, "03_Credenciales_Ingresadas");
-
-        // TERCERO: Hacer login
         loginSteps.login();
 
-        // OPCIONAL: Validar si el login fue exitoso (usando tu método)
         boolean loginExitoso = loginSteps.isLoginSuccessful();
         if (loginExitoso) {
             screenShot(scenario, "04_Login_Exitoso");
